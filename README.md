@@ -88,8 +88,8 @@ Os suportes respeitam a positividade e os limites físicos; os intervalos da laj
 │   ├── app.js                 # Editor, interface e exportações
 │   └── uncertainty.js         # Monte Carlo e análise estatística
 ├── build.py                   # Geração do HTML autocontido
-├── fixtures/                  # Dados sintéticos para testes
-├── python_reference/          # Modelos, testes e resultados científicos anteriores
+├── fixtures/                  # Gerado por test_solar.js
+├── python_reference/          # Modelos, testes e resumos científicos
 ├── test_core.js
 ├── test_solar.js
 ├── test_uncertainty.js
@@ -115,9 +115,9 @@ node test_uncertainty.js
 python test_release.py
 ```
 
-Os três primeiros testes não requerem bibliotecas externas. O último requer Playwright para Python e Chromium, atualmente configurado em `/usr/bin/chromium`. Ajuste o caminho se necessário. O teste da interface verifica a configuração inicial, mudanças de parâmetros, Monte Carlo, importação meteorológica controlada, exportação JSON e comportamento em telas pequenas.
+Os três primeiros testes não requerem bibliotecas externas. Execute `test_solar.js` antes de `test_release.py`: ele cria o arquivo meteorológico sintético em `fixtures/`. O último requer Playwright para Python e Chromium, atualmente configurado em `/usr/bin/chromium`. Ajuste o caminho se necessário. O teste da interface verifica a configuração inicial, mudanças de parâmetros, Monte Carlo, importação meteorológica controlada, exportação JSON e comportamento em telas pequenas.
 
-Para os modelos de referência em Python, consulte `python_reference/README.md` e instale as dependências com `python -m pip install -r python_reference/requirements.txt`. Os arquivos `verification_*.txt` e os diretórios de resultados preservam a evidência dos ensaios anteriores. A concordância com o modelo Python e o refinamento temporal verificam a implementação, mas não validam a representação física de um ambiente real.
+Para os modelos de referência em Python, consulte `python_reference/README.md` e instale as dependências com `python -m pip install -r python_reference/requirements.txt`. Os resumos de resultados estão em `python_reference/results_roof/`, `python_reference/results_roof_mc_256/` e `python_reference/results_sobol/`. Os quatro CSVs disponibilizados nesta publicação passaram por normalização textual; os arquivos brutos, as séries temporais completas, amostras de Monte Carlo e registros históricos de verificação permanecem no pacote de desenvolvimento original. Podem ser regenerados pelos programas em `python_reference/`. A concordância com o modelo Python e o refinamento temporal verificam a implementação, mas não validam a representação física de um ambiente real.
 
 ## Publicação no GitHub Pages
 

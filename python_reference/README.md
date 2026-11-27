@@ -1,6 +1,6 @@
 # RoomClimate v0.4.3 — Uncertainty in explicit roof model
 
-This version extends v0.4.2 with Monte Carlo for the four-state thermal/humidity model (air, internal solids, roof and humidity ratio). It preserves the original solver, model, tests and prior outputs. Prior results folders are historical and do not describe this version.
+This version extends v0.4.2 with Monte Carlo for the four-state thermal/humidity model (air, internal solids, roof and humidity ratio). It preserves the original solver, model and tests. This public repository includes selected result summaries; full sample tables, time series and archived verification logs remain in the original development package and can be regenerated. Prior results folders, where available, are historical and do not describe this version.
 
 ## Reproduce
 
@@ -51,4 +51,4 @@ Setpoint 21 °C, tolerance 0.5 °C, maximum RH 65% over 13–18h; cooling allowe
 | 18000 | 254 | 254 | 252 |
 | 24000 | 254 | 254 | 254 |
 
-The 18000 BTU/h capacity missed the temperature limit twice and the humidity limit twice in the unfavorable climate. Both humidity failures persisted at 24000 BTU/h. 17 unit tests passed; finer sampling (1 min instead of 5 min and stricter tolerances) on 24 selected cases near the thresholds changed no joint classifications. See `verification_v043.txt` and `verification_sampling.txt`. The maximum temperature difference for those selected cases was 0.00188 °C. These tests do not constitute a rigorous bound for every realization.
+The 18000 BTU/h capacity missed the temperature limit twice and the humidity limit twice in the unfavorable climate. Both humidity failures persisted at 24000 BTU/h. 17 unit tests passed; finer sampling (1 min instead of 5 min and stricter tolerances) on 24 selected cases near the thresholds changed no joint classifications. The original development package contains `verification_v043.txt` and `verification_sampling.txt`. The maximum temperature difference for those selected cases was 0.00188 °C. These tests do not constitute a rigorous bound for every realization.
