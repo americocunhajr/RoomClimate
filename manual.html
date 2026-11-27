@@ -1,0 +1,56 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Manual de uso — RoomClimate</title><style>*{box-sizing:border-box}html{color-scheme:dark;scroll-behavior:smooth}body{margin:0;background:#0b1421;color:#e4edf7;font:16px/1.65 system-ui,-apple-system,sans-serif}a{color:#65dfc3;text-underline-offset:4px}a:focus-visible{outline:2px solid #65dfc3;outline-offset:4px}header{border-bottom:1px solid #30435a;background:#101d2d;padding:20px max(5vw,20px)}.nav{max-width:850px;margin:auto;display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap}.brand{font-weight:750;color:#e4edf7;text-decoration:none}.brand span{color:#65dfc3}.back{border:1px solid #4f9d92;border-radius:8px;padding:8px 13px;text-decoration:none}main{max-width:850px;margin:36px auto 70px;padding:0 22px}h1{font-size:clamp(28px,5vw,43px);line-height:1.12;letter-spacing:-.04em;margin-bottom:20px}h2{font-size:23px;line-height:1.25;border-top:1px solid #30435a;padding-top:24px;margin-top:32px;color:#84e5d2}p,li{color:#d2deec}strong{color:#f2f6fb}li{margin:6px 0}table{width:100%;border-collapse:collapse;table-layout:fixed}td,th{padding:12px;text-align:left;vertical-align:top;border:1px solid #30435a;overflow-wrap:anywhere}th{background:#1a2c40}td{background:#132235}td:first-child{width:35%}footer{border-top:1px solid #30435a;padding:20px;text-align:center;color:#9fb2c7} @media(max-width:480px){main{margin-top:24px}td,th{padding:8px;font-size:14px}}</style></head><body><header><nav class="nav"><a class="brand" href="index.html"><span>❄</span> RoomClimate · 1.0 beta</a><a class="back" href="index.html">Voltar ao simulador</a></nav></header><main><h1>RoomClimate — Manual de uso</h1>
+<p><strong>Versão 1.0 beta · Guia rápido de pré-dimensionamento</strong></p>
+<p>O RoomClimate estima como uma sala aquece durante o dia e compara aparelhos de ar-condicionado. O objetivo é ajudar na escolha inicial de capacidade, não substituir um projeto de climatização.</p>
+<h2>1. Descreva sua sala</h2>
+<ul>
+<li>Em <strong>Seu ambiente</strong>, informe largura, comprimento e pé-direito em metros.</li>
+<li>Selecione a fachada externa e marque as demais paredes que dão para a rua, se houver. Cadastre as janelas: largura, altura, altura do peitoril e posição ao longo da parede. Revise a planta para conferir as medidas.</li>
+<li>Em <strong>Mobiliário e instalação</strong>, represente os móveis, a porta e o aparelho. Essas posições não alteram a circulação de ar no modelo atual.</li>
+</ul>
+<h2>2. Informe as condições de uso</h2>
+<p>Em <strong>Condições de uso</strong>, escolha o isolamento da cobertura e a proteção solar das janelas. Se não souber, compare mais de uma opção. Informe a temperatura desejada, tolerância, limite de umidade e entrada de ar.</p>
+<p>Use <strong>Calcular ganhos internos a partir de pessoas e aparelhos</strong> para informar quantidades e potências. Clique em <strong>Aplicar estimativa</strong>. Considere apenas equipamentos efetivamente ligados no horário de ocupação; use potências realistas, não necessariamente as máximas de placa.</p>
+<p>Ajuste os horários de funcionamento, ocupação e avaliação. O horário é decimal: 13,5 significa 13h30. Ligue o aparelho antes do período que deseja avaliar se precisar de tempo para resfriar a sala.</p>
+<h2>3. Escolha o clima e o sol</h2>
+<p>Em <strong>Clima, localização e sol</strong>, selecione uma das três opções:</p>
+<table>
+<thead>
+<tr>
+  <th>Opção</th>
+  <th>Quando usar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Dia quente simplificado</td>
+  <td>Estimativa rápida, sem orientação solar.</td>
+</tr>
+<tr>
+  <td>Sol conforme localização</td>
+  <td>Compare o efeito da orientação das janelas em determinada data. O clima é sintético.</td>
+</tr>
+<tr>
+  <td>Dados meteorológicos históricos</td>
+  <td>Use uma série horária importada ou solicite dados ERA5. Requer dias antecedentes para representar a memória térmica da construção.</td>
+</tr>
+</tbody>
+</table>
+<p>Nos modos com geometria solar, informe latitude, longitude, data, fuso horário e orientação da parede superior da planta: norte = 0°, leste = 90°, sul = 180° e oeste = 270°. Confira a indicação de norte na planta. No modo histórico, clique em <strong>Obter série ERA5</strong> ou <strong>Importar JSON ERA5</strong>. A consulta depende de internet e do serviço externo; em caso de falha, use um arquivo compatível ou um cenário sintético.</p>
+<h2>4. Compare as capacidades</h2>
+<p>Clique em <strong>Comparar aparelhos</strong>. A tabela apresenta temperatura e umidade máximas no intervalo avaliado, para cada capacidade, incluindo a sala sem refrigeração.</p>
+<ul>
+<li><strong>Atende:</strong> satisfaz simultaneamente os limites informados, sem supersaturação simulada.</li>
+<li><strong>Não atende:</strong> pelo menos um dos critérios não foi atingido.</li>
+<li><strong>Supersaturação:</strong> resultado fora do domínio de validade do modelo de umidade. Revise o cenário; não use essa classificação para decidir a compra.</li>
+</ul>
+<p>A menor capacidade que atende é uma <strong>candidata</strong>, não uma garantia. Nos gráficos, compare a temperatura com e sem aparelho, a umidade, a temperatura da laje e a incidência solar. A região sombreada indica o intervalo avaliado. Se o aparelho não atende, compare também a melhoria de proteção solar, isolamento e vedação antes de aumentar a potência.</p>
+<h2>5. Teste as incertezas (opcional)</h2>
+<p>Em <strong>E se minhas estimativas estiverem erradas?</strong>, revise os intervalos das propriedades. Os valores iniciais pertencem ao exemplo de escritório; não os aplique automaticamente a outra construção.</p>
+<p>Escolha o número de combinações, a meta de atendimento e a semente. Comece com 16 ou 32 combinações para explorar; use mais para reduzir a incerteza amostral. Clique em <strong>Testar incertezas</strong>. A análise pode levar alguns minutos, dependendo do dispositivo.</p>
+<p>Uma frequência de 90% indica que o aparelho atendeu em 90% das combinações simuladas naquele dia. Não significa 90% dos dias do ano. O simulador também mostra um intervalo estatístico: a indicação usa seu limite inferior. Mesmo sem falhas, uma amostra pequena pode não demonstrar uma meta elevada.</p>
+<h2>6. Salve e revise</h2>
+<p>Em <strong>Salvar e compartilhar</strong>, use <strong>Exportar JSON</strong> para salvar a configuração e <strong>Importar JSON</strong> para retomá-la. <strong>Exportar CSV</strong> salva as séries de temperatura e umidade, após a simulação. Na análise de incertezas, <strong>Exportar amostras CSV</strong> salva as realizações e um JSON com as hipóteses. Sempre execute novamente após alterar os parâmetros.</p>
+<p>Antes da compra, confira as dimensões, a orientação solar, as condições de verão, a vedação e as propriedades da cobertura. Repita a análise para diferentes dias e condições plausíveis. Consulte a capacidade efetiva e os requisitos de instalação do fabricante e um profissional habilitado.</p>
+<p><strong>Limitações:</strong> o RoomClimate é uma versão beta sem validação experimental. Não calcula a distribuição espacial do ar, a ventilação normativa, o consumo elétrico nem a condensação em superfícies. A posição dos móveis e do aparelho é apenas ilustrativa. A análise histórica online ainda não foi verificada com acesso real ao serviço. Os resultados são estimativas condicionadas às informações fornecidas.</p>
+<p><a href="index.html">Voltar ao simulador</a> · <a href="README.md">Documentação do projeto</a></p>
+</main><footer>RoomClimate · Pré-dimensionamento de climatização</footer></body></html>
